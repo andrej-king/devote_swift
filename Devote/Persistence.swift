@@ -1,10 +1,3 @@
-//
-//  Persistence.swift
-//  Devote
-//
-//  Created by Andrej Pedchenko on 02.04.2022.
-//
-
 import CoreData
 
 struct PersistenceController {

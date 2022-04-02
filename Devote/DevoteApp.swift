@@ -1,10 +1,3 @@
-//
-//  DevoteApp.swift
-//  Devote
-//
-//  Created by Andrej Pedchenko on 02.04.2022.
-//
-
 import SwiftUI
 
 @main
