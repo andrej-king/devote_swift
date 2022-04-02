@@ -5,6 +5,6 @@
         <attribute name="timestamp" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
     </entity>
     <elements>
-        <element name="Item" positionX="-63" positionY="-18" width="128" height="59"/>
+        <element name="Item" positionX="-63" positionY="-18" width="199.5859375" height="59"/>
     </elements>
 </model>
