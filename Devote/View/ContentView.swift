@@ -57,57 +57,63 @@ struct ContentView: View {
     
     var body: some View {
         NavigationView {
-            VStack {
-                VStack(spacing: 16) {
-                    TextField("New task", text: $task)
+            ZStack {
+                VStack {
+                    VStack(spacing: 16) {
+                        TextField("New task", text: $task)
+                            .padding()
+                            .background(
+                                Color(UIColor.systemGray6)
+                            )
+                            .cornerRadius(10)
+                        
+                        Button(action: {
+                            addItem()
+                        }, label: {
+                            Spacer()
+                            Text("Save".uppercased())
+                            Spacer()
+                        })
+                        .disabled(isButtonDisabled)
                         .padding()
-                        .background(
-                            Color(UIColor.systemGray6)
-                        )
+                        .font(.headline)
+                        .foregroundColor(.white)
+                        .background(isButtonDisabled ? Color.gray : Color.pink)
                         .cornerRadius(10)
-                    
-                    Button(action: {
-                        addItem()
-                    }, label: {
-                        Spacer()
-                        Text("Save".uppercased())
-                        Spacer()
-                    })
-                    .disabled(isButtonDisabled)
+                    } //: VSTACK
                     .padding()
-                    .font(.headline)
-                    .foregroundColor(.white)
-                    .background(isButtonDisabled ? Color.gray : Color.pink)
-                    .cornerRadius(10)
+                    
+                    List {
+                        ForEach(items) { item in
+                            NavigationLink {
+                                Text("Item at \(item.timestamp!, formatter: itemFormatter)")
+                            } label: {
+                                VStack(alignment: .leading) {
+                                    Text(item.task ?? "")
+                                        .font(.headline)
+                                        .fontWeight(.bold)
+                                    
+                                    Text(item.timestamp!, formatter: itemFormatter)
+                                        .font(.footnote)
+                                        .foregroundColor(.gray)
+                                } //: LIST ITEM
+                            }
+                        } //: LOOP
+                        .onDelete(perform: deleteItems)
+                    } //: LIST
+                    .listStyle(PlainListStyle()) // remove left and rigt padding
                 } //: VSTACK
-                .padding()
-                
-                List {
-                    ForEach(items) { item in
-                        NavigationLink {
-                            Text("Item at \(item.timestamp!, formatter: itemFormatter)")
-                        } label: {
-                            VStack(alignment: .leading) {
-                                Text(item.task ?? "")
-                                    .font(.headline)
-                                    .fontWeight(.bold)
-                                
-                                Text(item.timestamp!, formatter: itemFormatter)
-                                    .font(.footnote)
-                                    .foregroundColor(.gray)
-                            } //: LIST ITEM
-                        }
-                    } //: LOOP
-                    .onDelete(perform: deleteItems)
-                } //: LIST
-            } //: VSTACK
+            } //: ZSTACK
             .navigationBarTitle("Daily tasks", displayMode: .large)
             .toolbar {
+                #if os(iOS)
                 ToolbarItem(placement: .navigationBarTrailing) {
                     EditButton()
                 }
+                #endif
             } //: TOOLBAR
         } //: NAVIGATION
+//        .navigationViewStyle(StackNavigationViewStyle())
     }
 }
 
