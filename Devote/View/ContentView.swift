@@ -4,6 +4,12 @@ import CoreData
 struct ContentView: View {
     // MARK: - PROPERTY
     
+    @State var task: String = ""
+    
+    private var isButtonDisabled: Bool {
+        task.isEmpty
+    }
+    
     // FETCHING DATA
     @Environment(\.managedObjectContext) private var viewContext
 
@@ -18,6 +24,9 @@ struct ContentView: View {
         withAnimation {
             let newItem = Item(context: viewContext)
             newItem.timestamp = Date()
+            newItem.task = task
+            newItem.completion = false
+            newItem.id = UUID()
 
             do {
                 try viewContext.save()
@@ -45,16 +54,51 @@ struct ContentView: View {
     
     var body: some View {
         NavigationView {
-            List {
-                ForEach(items) { item in
-                    NavigationLink {
-                        Text("Item at \(item.timestamp!, formatter: itemFormatter)")
-                    } label: {
-                        Text(item.timestamp!, formatter: itemFormatter)
-                    }
-                } //: LOOP
-                .onDelete(perform: deleteItems)
-            } //: LIST
+            VStack {
+                VStack(spacing: 16) {
+                    TextField("New task", text: $task)
+                        .padding()
+                        .background(
+                            Color(UIColor.systemGray6)
+                        )
+                        .cornerRadius(10)
+                    
+                    Button(action: {
+                        addItem()
+                    }, label: {
+                        Spacer()
+                        Text("Save".uppercased())
+                        Spacer()
+                    })
+                    .disabled(isButtonDisabled)
+                    .padding()
+                    .font(.headline)
+                    .foregroundColor(.white)
+                    .background(isButtonDisabled ? Color.gray : Color.pink)
+                    .cornerRadius(10)
+                } //: VSTACK
+                .padding()
+                
+                List {
+                    ForEach(items) { item in
+                        NavigationLink {
+                            Text("Item at \(item.timestamp!, formatter: itemFormatter)")
+                        } label: {
+                            VStack(alignment: .leading) {
+                                Text(item.task ?? "")
+                                    .font(.headline)
+                                    .fontWeight(.bold)
+                                
+                                Text(item.timestamp!, formatter: itemFormatter)
+                                    .font(.footnote)
+                                    .foregroundColor(.gray)
+                            } //: LIST ITEM
+                        }
+                    } //: LOOP
+                    .onDelete(perform: deleteItems)
+                } //: LIST
+            } //: VSTACK
+            .navigationBarTitle("Daily tasks", displayMode: .large)
             .toolbar {
                 ToolbarItem(placement: .navigationBarLeading) {
                     EditButton()
@@ -66,7 +110,6 @@ struct ContentView: View {
                     }
                 }
             } //: TOOLBAR
-            Text("Select an item")
         } //: NAVIGATION
     }
 }
