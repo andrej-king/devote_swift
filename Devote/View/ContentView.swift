@@ -101,9 +101,16 @@ struct ContentView: View {
                         } //: LOOP
                         .onDelete(perform: deleteItems)
                     } //: LIST
-                    .listStyle(PlainListStyle()) // remove left and rigt padding
+//                    .listStyle(PlainListStyle()) // remove left and rigt padding
+                    .listStyle(InsetGroupedListStyle())
+                    .shadow(color: Color(red: 0, green: 0, blue: 0, opacity: 0.3), radius: 12)
+                    .padding(.vertical, 0)
+                    .frame(maxWidth: 640)
                 } //: VSTACK
             } //: ZSTACK
+            .onAppear() {
+                UITableView.appearance().backgroundColor = UIColor.clear // clear bg color for List
+            }
             .navigationBarTitle("Daily tasks", displayMode: .large)
             .toolbar {
                 #if os(iOS)
@@ -112,8 +119,11 @@ struct ContentView: View {
                 }
                 #endif
             } //: TOOLBAR
+            .background(
+                backgroundGradient.ignoresSafeArea(.all)
+            )
         } //: NAVIGATION
-//        .navigationViewStyle(StackNavigationViewStyle())
+        .navigationViewStyle(StackNavigationViewStyle())
     }
 }
 
