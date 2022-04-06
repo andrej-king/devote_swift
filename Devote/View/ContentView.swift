@@ -98,19 +98,7 @@ struct ContentView: View {
 
                     List {
                         ForEach(items) { item in
-                            NavigationLink {
-                                Text("Item at \(item.timestamp!, formatter: itemFormatter)")
-                            } label: {
-                                VStack(alignment: .leading) {
-                                    Text(item.task ?? "")
-                                        .font(.headline)
-                                        .fontWeight(.bold)
-                                    
-                                    Text(item.timestamp!, formatter: itemFormatter)
-                                        .font(.footnote)
-                                        .foregroundColor(.gray)
-                                } //: LIST ITEM
-                            }
+                            ListRowItemView(item: item)
                         } //: LOOP
                         .onDelete(perform: deleteItems)
                     } //: LIST

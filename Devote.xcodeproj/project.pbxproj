@@ -21,6 +21,7 @@
 		558F2B1727F8B8D500AF4631 /* Constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 558F2B1627F8B8D500AF4631 /* Constant.swift */; };
 		55A1235327FC9C8600B2F958 /* NewTaskItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55A1235227FC9C8600B2F958 /* NewTaskItemView.swift */; };
 		55A1235527FCAC2F00B2F958 /* BlankView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55A1235427FCAC2F00B2F958 /* BlankView.swift */; };
+		55A1235727FCC8EA00B2F958 /* ListRowItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55A1235627FCC8EA00B2F958 /* ListRowItemView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -40,6 +41,7 @@
 		558F2B1627F8B8D500AF4631 /* Constant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constant.swift; sourceTree = "<group>"; };
 		55A1235227FC9C8600B2F958 /* NewTaskItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewTaskItemView.swift; sourceTree = "<group>"; };
 		55A1235427FCAC2F00B2F958 /* BlankView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlankView.swift; sourceTree = "<group>"; };
+		55A1235627FCC8EA00B2F958 /* ListRowItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListRowItemView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -111,6 +113,7 @@
 				55538F8327FA1ED600330F34 /* BackgroundImageView.swift */,
 				55A1235227FC9C8600B2F958 /* NewTaskItemView.swift */,
 				55A1235427FCAC2F00B2F958 /* BlankView.swift */,
+				55A1235627FCC8EA00B2F958 /* ListRowItemView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -226,6 +229,7 @@
 				55538F8227FA16BD00330F34 /* HideKeyboardExtension.swift in Sources */,
 				55A1235527FCAC2F00B2F958 /* BlankView.swift in Sources */,
 				558F2B1727F8B8D500AF4631 /* Constant.swift in Sources */,
+				55A1235727FCC8EA00B2F958 /* ListRowItemView.swift in Sources */,
 				558F2AFE27F877E700AF4631 /* Devote.xcdatamodeld in Sources */,
 				558F2AF227F877E700AF4631 /* DevoteApp.swift in Sources */,
 				55A1235327FC9C8600B2F958 /* NewTaskItemView.swift in Sources */,
