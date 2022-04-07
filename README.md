@@ -10,4 +10,3 @@
 <img src="readme-images/iPhone-13-pro-homepage-light-new-item.png" width="300">
 ---
 <img src="readme-images/iPhone-13-pro-homepage-dark-new-item.png" width="300">
----
