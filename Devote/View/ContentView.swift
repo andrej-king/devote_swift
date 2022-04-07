@@ -12,7 +12,7 @@ struct ContentView: View {
     @Environment(\.managedObjectContext) private var viewContext
 
     @FetchRequest(
-        sortDescriptors: [NSSortDescriptor(keyPath: \Item.timestamp, ascending: true)],
+        sortDescriptors: [NSSortDescriptor(keyPath: \Item.completion, ascending: true), NSSortDescriptor(keyPath: \Item.timestamp, ascending: false)],
         animation: .default)
     private var items: FetchedResults<Item>
 
@@ -108,11 +108,17 @@ struct ContentView: View {
                     .padding(.vertical, 0)
                     .frame(maxWidth: 640)
                 } //: VSTACK
+                .blur(radius: showNewTaskItem ? 8 : 0, opaque: false) // bluer for background
+                .transition(.move(edge: .bottom))
+                .animation(.easeOut(duration: 0.5), value: showNewTaskItem)
                 
                 // MARK: - NEW TASK ITEM
                 
                 if (showNewTaskItem) {
-                    BlankView() // for no have ability to click othe items
+                    BlankView(
+                        backgroundColor: isDarkMode ? Color.black : Color.gray,
+                        backgroundOpacity: isDarkMode ? 0.3 : 0.5
+                    ) // for no have ability to click other items
                         .onTapGesture {
                             withAnimation() {
                                 showNewTaskItem = false
@@ -130,6 +136,7 @@ struct ContentView: View {
             .navigationBarHidden(true)
             .background(
                 BackgroundImageView()
+                    .blur(radius: showNewTaskItem ? 8 : 0, opaque: false)
             )
             .background(
                 backgroundGradient.ignoresSafeArea(.all)
