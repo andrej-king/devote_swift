@@ -10,6 +10,8 @@
 		55538F8227FA16BD00330F34 /* HideKeyboardExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55538F8127FA16BD00330F34 /* HideKeyboardExtension.swift */; };
 		55538F8427FA1ED600330F34 /* BackgroundImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55538F8327FA1ED600330F34 /* BackgroundImageView.swift */; };
 		556ADA7327FE1CC5000B8F0F /* CheckboxStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 556ADA7227FE1CC5000B8F0F /* CheckboxStyle.swift */; };
+		5573017E28018641009F2757 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 558F2AF527F877E700AF4631 /* Assets.xcassets */; };
+		5573017F28018735009F2757 /* Constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 558F2B1627F8B8D500AF4631 /* Constant.swift */; };
 		558F2AF227F877E700AF4631 /* DevoteApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 558F2AF127F877E700AF4631 /* DevoteApp.swift */; };
 		558F2AF427F877E700AF4631 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 558F2AF327F877E700AF4631 /* ContentView.swift */; };
 		558F2AF627F877E700AF4631 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 558F2AF527F877E700AF4631 /* Assets.xcassets */; };
@@ -315,6 +317,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5573017E28018641009F2757 /* Assets.xcassets in Resources */,
 				55FF794927FF53A900D31C8C /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -346,6 +349,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				55FF794727FF53A800D31C8C /* DevoteWidget.swift in Sources */,
+				5573017F28018735009F2757 /* Constant.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
