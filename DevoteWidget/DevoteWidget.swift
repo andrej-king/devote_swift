@@ -55,17 +55,21 @@ struct DevoteWidgetEntryView : View {
                     .padding(.top, 12)
                     .padding(.trailing, 12)
                 
-                Text("Just do it")
-                    .foregroundColor(.white)
-                    .font(.system(.footnote, design: .rounded))
-                    .fontWeight(.bold)
-                    .padding(.horizontal, 12)
-                    .padding(.vertical, 4)
-                    .background(
-                        Color(red: 0, green: 0, blue: 0, opacity: 0.5)
-                            .blendMode(.overlay)
-                    )
+                HStack {
+                    Text("Just do it")
+                        .foregroundColor(.white)
+                        .font(.system(.footnote, design: .rounded))
+                        .fontWeight(.bold)
+                        .padding(.horizontal, 12)
+                        .padding(.vertical, 4)
+                        .background(
+                            Color(red: 0, green: 0, blue: 0, opacity: 0.5)
+                                .blendMode(.overlay)
+                        )
                     .clipShape(Capsule())
+                } //: HSTACK
+                .padding()
+                .offset(y: (geometry.size.height / 2) - 24)
             } //: ZSTACK
         } //: GEOMETRY
     }
