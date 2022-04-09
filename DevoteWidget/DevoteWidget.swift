@@ -33,7 +33,16 @@ struct SimpleEntry: TimelineEntry {
 
 struct DevoteWidgetEntryView : View {
     var entry: Provider.Entry
+
     @Environment(\.widgetFamily) var widgetFamily
+    
+    var fontStyle: Font {
+        if widgetFamily == .systemSmall {
+            return .system(.footnote, design: .rounded)
+        } else {
+            return .system(.headline, design: .rounded)
+        }
+    }
 
     var body: some View {
         // Text(entry.date, style: .time)
@@ -62,7 +71,7 @@ struct DevoteWidgetEntryView : View {
                 HStack {
                     Text("Just do it")
                         .foregroundColor(.white)
-                        .font(.system(.footnote, design: .rounded))
+                        .font(fontStyle)
                         .fontWeight(.bold)
                         .padding(.horizontal, 12)
                         .padding(.vertical, 4)
